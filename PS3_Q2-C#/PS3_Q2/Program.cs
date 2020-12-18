@@ -51,7 +51,7 @@ namespace PS3_Q2
                 
             }
             int result = getTotalX(a, b);
-            Console.WriteLine("\n Output:");
+            Console.WriteLine("\nOutput:");
             Console.WriteLine(result);
         }
         /// <summary>
