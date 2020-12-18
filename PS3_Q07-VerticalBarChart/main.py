@@ -1,9 +1,9 @@
 #CSV reader reference: https://docs.python.org/3/library/csv.html
-#line graph visualization reference: https://developers.google.com/chart/interactive/docs/gallery/linechart
+#line graph visualization reference: https://developers.google.com/chart/interactive/docs/gallery/columnchart
 import csv
 from app import app
 from flask import jsonify, request, render_template
-#Creates a pie chart for all the roman emperors who were assassinated. It a even circle and there are 22 records each with 4.5% in the pie chart		
+#Creates a bar chart comparing the number of marriages and divorces per capita in the U.S. between 1900, 1950, and 2000.		
 @app.route('/google-charts/vertical-bar-graph')
 def google_pie_chart():
     File = open('static/us-marriages-divorces-1867-2014.csv')

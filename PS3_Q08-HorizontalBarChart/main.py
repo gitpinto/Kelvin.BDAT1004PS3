@@ -1,9 +1,9 @@
 #CSV reader reference: https://docs.python.org/3/library/csv.html
-#line graph visualization reference: https://developers.google.com/chart/interactive/docs/gallery/linechart
+#line graph visualization reference: https://developers.google.com/chart/interactive/docs/gallery/barchart
 import csv
 from app import app
 from flask import jsonify, request, render_template
-#Creates a pie chart for all the roman emperors who were assassinated. It a even circle and there are 22 records each with 4.5% in the pie chart		
+#Creates a bar chart that compares the deadliest actors in Hollywood		
 @app.route('/google-charts/horizontal-bar-graph')
 def google_pie_chart():
     File = open('static/actor_kill_counts.csv')
