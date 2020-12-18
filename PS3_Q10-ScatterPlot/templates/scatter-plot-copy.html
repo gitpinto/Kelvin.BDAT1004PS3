@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart', 'scatter']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        
+        var data = google.visualization.arrayToDataTable([
+      ['{{ 'Year' }}',
+        {% for key in data.keys()%}
+            '{{ key }}',
+            {% endfor %}
+        ],
+      
+      {% for i in range(2) %}
+      [ 
+        {% if i==1 %}
+          '{{ 'Doctorates'}}',
+          {% else %}
+            '{{ 'Revenue'}}',
+            {% endif %}
+      {% for value in data.values() %}
+      
+        
+      {{ value[i] }},
+        {% endfor %}
+        ],
+      {% endfor %}
+      
+        ]);
+
+        var options = {
+          width: 1500,
+          height: 900,
+          // title: 'Comparision total revenue earned by arcades and the number of Computer Science PhDs awarded in the U.S. between 2000 and 2009',
+          chart: {
+            title: 'Comparision total revenue earned by arcades and the number of Computer Science PhDs awarded',
+            subtitle: 'in the U.S. between 2000 and 2009'
+          },
+          series: {
+            // 0: {targetAxisIndex: 0, axis: 'doctorates'},
+            // 1: {targetAxisIndex: 1, axis: 'revenue'}
+            1: {axis: 'doctorates'},
+            0: {axis: 'revenue'}
+          },
+          //vAxis: {0: {viewWindowMode: "maximized",   viewWindow: {min: 1,max:2}, ticks: [1.0, 1.2, 1.4, 1.6, 1.8, 2.0]}},
+          // vAxis: {
+          //   0: {title: 'Number of Doctorates'},
+          //   1: {title: 'Revenue in billions '},
+          //   0: {viewWindowMode: "maximized",   viewWindow: {min: 0,max:1800} },
+          //   1: {viewWindowMode: "maximized", viewWindow: {min: 10,max:200} }
+          // },
+          axes: {
+          // Adds labels to each axis; they don't have to match the axis names.
+          y: {
+            'doctorates': {label: 'Number of Doctorates'},
+            'revenue': {label: 'Revenue in billions ',viewWindowMode: "maximized", viewWindow: {min: 1,max:2}}
+          }
+        },
+        };
+
+        var chart = new google.charts.Scatter(document.getElementById('chart_div'));
+        chart.draw(data, google.charts.Scatter.convertOptions(options));
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px"></div>
+    <div id="chart_div1" style="width: 900px; height: 500px"></div>
+  </body>
+</html>

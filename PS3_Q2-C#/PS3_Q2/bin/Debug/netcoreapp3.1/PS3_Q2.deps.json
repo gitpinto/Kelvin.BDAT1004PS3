@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "PS3_Q2/1.0.0": {
+        "runtime": {
+          "PS3_Q2.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PS3_Q2/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
